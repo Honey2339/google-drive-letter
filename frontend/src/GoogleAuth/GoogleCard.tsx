@@ -1,6 +1,6 @@
 const GoogleCard = () => {
   const handleClick = () => {
-    window.location.href = "http://localhost:5000/auth/google";
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/google`;
   };
   return (
     <div className="w-80 mx-auto bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-600">

@@ -99,14 +99,17 @@ export default function Editor({ letter, setLetter }: any) {
     console.log("Saving content:", editorContent);
 
     try {
-      const response = await fetch("http://localhost:5000/save-letter", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title, content: editorContent }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/save-letter`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, content: editorContent }),
+        }
+      );
 
       const data = await response.json();
       if (response.ok) {
