@@ -13,6 +13,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    allowedHosts: ["generous-liberation-production.up.railway.app"],
   },
   preview: {
     port: 3000,
