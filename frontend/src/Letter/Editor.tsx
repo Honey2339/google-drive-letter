@@ -96,7 +96,7 @@ export default function Editor({ letter, setLetter }: any) {
 
   const saveLetter = async () => {
     setLetter(editorContent);
-    console.log("Saving content:", editorContent);
+    console.log(letter);
 
     try {
       const response = await fetch(
