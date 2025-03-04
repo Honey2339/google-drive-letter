@@ -19,7 +19,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: process.env.NODE_ENV === "production" },
   })
 );
 app.use(passport.initialize());
@@ -77,7 +77,6 @@ app.post("/save-letter", async (req, res) => {
   const user = req.user;
   const accessToken = user.accessToken;
 
-  // Create an OAuth2 client with the access token
   const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
